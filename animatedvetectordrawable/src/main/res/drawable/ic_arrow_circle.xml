@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <item
+        android:id="@+id/checked"
+        android:state_checked="true">
+        <rotate
+            android:drawable="@drawable/ic_arrow_circle_down"
+            android:fromDegrees="180"
+            android:pivotX="50%"
+            android:pivotY="50%" />
+    </item>
+    <item
+        android:id="@+id/uncheck"
+        android:drawable="@drawable/ic_arrow_circle_down" />
+    <transition
+        android:fromId="@id/uncheck"
+        android:toId="@id/checked">
+        <aapt:attr name="android:drawable">
+            <animated-vector
+                android:drawable="@drawable/ic_arrow_circle_down">
+                <target android:name="rotation">
+                    <aapt:attr name="android:animation">
+                        <objectAnimator
+                            android:interpolator="@android:interpolator/accelerate_quad"
+                            android:valueFrom="0"
+                            android:valueTo="180"
+                            android:propertyName="rotation"
+                            android:duration="@android:integer/config_mediumAnimTime"
+                            />
+                    </aapt:attr>
+                </target>
+                <target android:name="fillColor">
+                    <aapt:attr name="android:animation">
+                        <objectAnimator
+                            android:interpolator="@android:interpolator/accelerate_quad"
+                            android:valueFrom="#3F51B5"
+                            android:valueTo="#FF4081"
+                            android:propertyName="fillColor"
+                            android:valueType="intType"
+                            android:duration="@android:integer/config_mediumAnimTime"
+                            />
+                    </aapt:attr>
+                </target>
+            </animated-vector>
+        </aapt:attr>
+    </transition>
+    <transition
+        android:fromId="@id/checked"
+        android:toId="@id/uncheck">
+        <aapt:attr name="android:drawable">
+            <animated-vector
+                android:drawable="@drawable/ic_arrow_circle_down">
+                <target android:name="rotation">
+                    <aapt:attr name="android:animation">
+                        <objectAnimator
+                            android:interpolator="@android:interpolator/accelerate_quad"
+                            android:valueFrom="180"
+                            android:valueTo="0"
+                            android:propertyName="rotation"
+                            android:duration="@android:integer/config_mediumAnimTime"
+                            />
+                    </aapt:attr>
+                </target>
+                <target android:name="fillColor">
+                    <aapt:attr name="android:animation">
+                        <objectAnimator
+                            android:interpolator="@android:interpolator/accelerate_quad"
+                            android:valueTo="#3F51B5"
+                            android:valueFrom="#FF4081"
+                            android:propertyName="fillColor"
+                            android:valueType="intType"
+                            android:duration="@android:integer/config_mediumAnimTime"
+                            />
+                    </aapt:attr>
+                </target>
+            </animated-vector>
+        </aapt:attr>
+    </transition>
+</animated-selector>
